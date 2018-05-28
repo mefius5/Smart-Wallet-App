@@ -1,0 +1,117 @@
+#content {
+    text-align: center;
+    padding-top: 25%;
+    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+        0px 8px 13px rgba(0, 0, 0, 0.1),
+        0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1517448988499-4cdc5bbde64c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=10450b1daa31a8955a2ef99a35c87d85&auto=format&fit=crop&w=1950&q=80);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+html{
+    height: 100%;
+}
+
+h1 {
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 54px;
+}
+
+h3{
+    color: white;
+    letter-spacing: 1px;
+}
+
+hr{
+    max-width: 90%;
+}
+
+.well{
+    margin-bottom: 0px;
+}
+
+/*ColorBox*/
+
+#sw_cancel {
+	float: right;
+	clear: both;
+    color: black;
+}
+
+
+.container-users {
+    margin-top: 100px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.record-header{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 0 10px;
+    background-color: rgba(28, 25, 25, 0.5);
+
+
+}
+
+.record-expense{
+    border: 2px solid red;
+}
+
+.record-profit{
+    border: 2px solid green;
+}
+
+.record-header:hover{
+    background-color: rgba(28, 25, 25, 0.9);
+}
+
+.record{
+    font-size:20px;
+    color:white;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+}
+
+.record-content{
+    float: left;
+    width: 33%;
+}
+
+.record-amount{
+    float: left;
+    width: 33%;
+    text-align: center;
+}
+
+
+.record-date{
+    font-style: italic;
+    width: 33%;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.form-header {
+    text-align: center;
+    color: green;
+    margin-bottom: 10px;
+}
