@@ -103,6 +103,10 @@
 
     </div>
     
+<!--    Delete form-->
+   
+   
+    
     
 
     <script src="../../../other/javascript/loadrecords.js"></script>
