@@ -4,14 +4,14 @@
         
         var id = e.id
             console.log(id);// We split with '-' as separator and take the second element of the resulting array
-        $.ajax({
-            url: "../../editProfit.php",
-            type: "POST", // or GET whatever but POST is usually better
-            data: { id : id },
-            success: function (data){
-                $('#records').html(data);
-            }
-        });
+//        $.ajax({
+//            url: "../../editProfit.php",
+//            type: "POST", // or GET whatever but POST is usually better
+//            data: { id : id },
+//            success: function (data){
+//                $('#records').html(data);
+//            }
+//        });
     }
         
 
@@ -105,7 +105,28 @@
     
 <!--    Delete form-->
    
-   
+     <form method="post" id="deleteform">
+        <div class="modal" id="deleteModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                  <h4 id="myModalLabel">
+                    Are you sure to delete this record
+                  </h4>
+              </div>
+              <div class="modal-footer">
+                  <input class="btn btn-danger pull-left" name="delete" type="submit" value="Yes">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                  Cancel
+                </button>
+              </div>
+          </div>
+      </div>
+      </div>
+      </form>
     
     
 

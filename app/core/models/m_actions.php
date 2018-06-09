@@ -38,11 +38,11 @@
                 $date = $row['date'];
                 $profit_expense = $row['profit_expense'];
                  
-                echo "<a  href='?edit$profit_expense'><div onclick='editRecord(this)' id='$record_id' class='record-header record-$profit_expense' >
+                echo "<div id='$record_id' class='record-header record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
                         <div class='record record-content'>$category</div>
                         <div class='record record-amount'>$amount</div>
                         <div class='record record-date '>$date</div>
-                      </div></a>"; 
+                      </div>"; 
                 
             }
         }
