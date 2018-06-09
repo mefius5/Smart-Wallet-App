@@ -115,3 +115,7 @@ a {
     color: green;
     margin-bottom: 10px;
 }
+
+#myModalLabel {
+    text-align: center;
+}

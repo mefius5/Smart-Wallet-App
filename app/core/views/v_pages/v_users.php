@@ -1,19 +1,18 @@
 <script>
-        function editRecord(e) {
-    // First we need the clean ID of the product
-        
-        var id = e.id
-            console.log(id);// We split with '-' as separator and take the second element of the resulting array
-//        $.ajax({
-//            url: "../../editProfit.php",
-//            type: "POST", // or GET whatever but POST is usually better
-//            data: { id : id },
-//            success: function (data){
-//                $('#records').html(data);
-//            }
-//        });
-    }
-        
+ var record_id;
+    
+       function editRecord(e) {  
+        record_id = e.id
+        console.log(record_id);
+    };
+    
+//    function deleteRecord() {
+//        console.log(id);
+//    }
+//    
+    
+    
+   
 
 </script>
 
@@ -51,6 +50,8 @@
 </head>
 
 <body>
+    
+    
 
     <nav class="navbar navbar-inverse">
         <div class="container">
@@ -114,11 +115,11 @@
                     &times;
                   </button>
                   <h4 id="myModalLabel">
-                    Are you sure to delete this record
+                    Are you sure to delete this record?
                   </h4>
               </div>
               <div class="modal-footer">
-                  <input class="btn btn-danger pull-left" name="delete" type="submit" value="Yes">
+                  <button type="button" class="btn btn-danger pull-left delete" name="delete" type="submit"> Delete</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                   Cancel
                 </button>

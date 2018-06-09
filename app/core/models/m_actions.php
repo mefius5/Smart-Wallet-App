@@ -8,7 +8,7 @@
          function loadRecords($user_id){
              global $SW;
              
-              if($stmt = $SW->Database->prepare("SELECT * FROM operations WHERE     user_id = ? ORDER BY id DESC LIMIT 10")){
+              if($stmt = $SW->Database->prepare("SELECT * FROM operations WHERE user_id = ? ORDER BY id DESC LIMIT 10")){
                 $stmt->bind_param("i", $user_id);
                 $stmt->execute();
                 $stmt->store_result();
@@ -55,7 +55,20 @@
                 $stmt->store_result();
                 $stmt->close();
             }
-        }     
+        }
+        
+        function deleteRecord($record_id){
+            global $SW;
+            if($stmt = $SW->Database->prepare("DELETE FROM operations WHERE id = ?")){
+                $stmt->bind_param('i', $record_id);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->close();
+            }
+                
+        }
+        
+        
     }
         
         

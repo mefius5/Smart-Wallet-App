@@ -21,6 +21,24 @@ $(function(){
         }
     }); 
     
+    $('.delete').on('click', function(e){
+        
+        console.log(record_id);
+        var el = document.getElementById( 'id' );
+        
+        
+        $.ajax({
+            url:'../../../deleteRecord.php',
+            type: "POST",
+            data: {id: record_id},
+            success: function(data){
+                 $(record_id).html(data);
+                window.location.href = "http://localhost/SMART_WALLET_APP/app/deleteRecord.php"
+            }
+        })
+        
+    });
+     
     
     
     
