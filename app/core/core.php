@@ -2,7 +2,7 @@
 
 class SW_Core {
     
-    public $Template, $Auth, $Database;
+    public $Template, $Auth, $Database, $Actions;
     
     function __construct($server, $user, $pass, $db_name){
         $this->Database = new mysqli($server, $user, $pass, $db_name);

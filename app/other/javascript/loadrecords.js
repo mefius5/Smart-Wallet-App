@@ -13,6 +13,13 @@ $(function(){
 //            }
 //        });
 //    }
+     $.ajax({
+        url:'../../../loadBalance.php',
+        success: function (data){
+            $('#records').html(data);
+        }
+    }); 
+    
     
     $.ajax({
         url:'../../../loadrecords.php',
@@ -24,7 +31,7 @@ $(function(){
     $('.delete').on('click', function(e){
         
         console.log(record_id);
-        var el = document.getElementById( 'id' );
+        var el = document.getElementById(record_id);
         
         
         $.ajax({
@@ -32,10 +39,17 @@ $(function(){
             type: "POST",
             data: {id: record_id},
             success: function(data){
-                 $(record_id).html(data);
-                window.location.href = "http://localhost/SMART_WALLET_APP/app/deleteRecord.php"
-            }
-        })
+                  if(data == 'error'){
+                        $('#alertContent').text("There was an issue delete the note from the database!");
+                        $("#alert").fadeIn();
+                    }else{
+                        //remove containing div
+                        el.remove();
+                        
+                    }
+                },
+                
+        });
         
     });
      

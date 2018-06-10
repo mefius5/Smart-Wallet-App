@@ -85,6 +85,11 @@
     <div class="container container-users">
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
+              
+              <div class="user-content">
+                <h3>Take Control Of Your Money</h3>
+              </div>
+               
                 <div class="buttons">
                     
                     <?php $SW->addProfit_link(); ?>
@@ -106,7 +111,7 @@
     
 <!--    Delete form-->
    
-     <form method="post" id="deleteform">
+     
         <div class="modal" id="deleteModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -119,7 +124,7 @@
                   </h4>
               </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-danger pull-left delete" name="delete" type="submit"> Delete</button>
+                  <button type="button" class="btn btn-danger pull-left delete" name="delete" type="submit" data-dismiss="modal"> Delete</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                   Cancel
                 </button>
@@ -127,7 +132,7 @@
           </div>
       </div>
       </div>
-      </form>
+      
     
     
 
