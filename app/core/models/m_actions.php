@@ -68,6 +68,18 @@
                 
         }
         
+        function loadsum($user_id, $profit_expense){
+             global $SW;
+            $sql="SELECT SUM(amount) FROM operations WHERE user_id='$user_id' AND profit_expense='$profit_expense'";
+            
+            $result = $SW->Database->query($sql);
+            
+            while($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
+                return $row['SUM(amount)'];
+                
+            }
+        }
+        
         
     }
         

@@ -86,9 +86,12 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
               
-              <div class="user-content">
-                <h3>Take Control Of Your Money</h3>
+              <div class="balance-header">
+                <h3>Your account balance:</h3>
               </div>
+              
+               <h2><div id="balance-amount" class="balance-amount" >
+              </div></h2>
                
                 <div class="buttons">
                     

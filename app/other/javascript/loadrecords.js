@@ -15,8 +15,10 @@ $(function(){
 //    }
      $.ajax({
         url:'../../../loadBalance.php',
+        data: {id: record_id}, 
         success: function (data){
-            $('#records').html(data);
+            $('#balance-amount').html(data);
+            console.log(data);
         }
     }); 
     
@@ -45,6 +47,7 @@ $(function(){
                     }else{
                         //remove containing div
                         el.remove();
+                        location.reload();
                         
                     }
                 },

@@ -53,6 +53,23 @@ hr{
     margin-top: 50px;
 }
 
+.balance-header{
+    text-align: center; 
+}
+
+.balance-amount{
+    text-align: center;
+    color:white;
+}
+
+.balance-amount-profit{
+    color: #39d339;
+}
+
+.balance-amount-expense{
+    color: #ef734e;
+}
+
 .buttons {
     margin-bottom: 20px;
     margin-top: 30px;
