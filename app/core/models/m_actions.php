@@ -75,7 +75,10 @@
             $result = $SW->Database->query($sql);
             
             while($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
-                return $row['SUM(amount)'];
+                
+                    return $row['SUM(amount)'];
+                
+                
                 
             }
         }

@@ -57,20 +57,30 @@
         <div class="container">
 <!--             Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+               
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+               
                 <a class="navbar-brand" href="#">Smart Wallet</a>
+                </div>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active" id="ervererr"><a href="#"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
                     <li><a href="#">Summary</a></li>
-                    <li><a href="#">My Profile</a></li>
+                    <li><a href="v_myProfile.php">My Profile</a></li>
                     <li><a href="#">Help</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#">
-                            <?php echo 'Logged as ' . $_SESSION['user_id'];?>
+                            <b><?php echo 'Logged as ' . $_SESSION['username'];?></b>
                         </a>
                     </li>
                     <li>

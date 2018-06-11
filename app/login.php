@@ -44,7 +44,9 @@ if(isset($_POST['username'])){
         echo'<script>$.colorbox.resize();</script>';
     }else{
        $_SESSION['username'] = $SW->Auth->saveRow($username, $password, 'username');
-       $_SESSION['user_id'] = $SW->Auth->saveRow($username, $password, 'user_id');
+       $_SESSION['user_id'] = $SW->Auth->saveRow($username, $password,  'user_id');
+       
+        
         //$_SESSION['username'] = $SW->Template->getData('input_user');
         $_SESSION['loggedin'] = TRUE;
       
