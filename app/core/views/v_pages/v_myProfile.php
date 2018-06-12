@@ -95,9 +95,11 @@
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <tr data-target="#updateUsername" data-toggle="modal">
+                        <tr data-target="#updateUsername" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
                             <td>Username</td>
-                            <td><?php echo $_SESSION['username'];?></td>
+                            <td>
+                                <?php echo $_SESSION['username'];?>
+                            </td>
                         </tr>
                         <tr data-target="#updateEmail">
                             <td>Email</td>
@@ -143,10 +145,10 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input class="btn green" name="updateusername" type="submit" value="Submit">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                  Cancel
-                </button>
+                        <input class="btn btn-success pull-left" name="updateusername" type="submit" value="Submit">
+                        
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel
+                        </button>
                     </div>
                 </div>
             </div>
@@ -155,7 +157,7 @@
 
 
 
-    <script src="../../../other/javascript/loadrecords.js"></script>
+    <script src="../../../other/javascript/myProfile.js"></script>
 </body>
 
 </html>
