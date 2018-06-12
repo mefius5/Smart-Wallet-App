@@ -37,7 +37,15 @@ class Auth{
         $result = mysqli_query($SW->Database, $sql);
         
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        return $row[$column]; 
+        
+        if(mysqli_num_rows($result) !== 1){
+            echo '<div class="alert alert-danger">Wrong username or Password</div>';
+                
+        }else{
+            return $row[$column]; 
+        }
+        
+        
         
         
 //        global $SW; 

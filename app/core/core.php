@@ -56,6 +56,10 @@ class SW_Core {
         if(isset($_GET['editprofit'])){
             include (APP_PATH . "core/templates/t_editProfit.php");
         }
+        
+         if(isset($_GET['updateUsername'])){
+            include (APP_PATH . "core/templates/t_editProfit.php");
+        }
     }
     
     
