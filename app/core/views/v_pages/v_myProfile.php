@@ -117,7 +117,6 @@
 
     </div>
 
-    <!--    Delete form-->
 
     <!--Update username-->
     <form method="post" id="updateusernameform">
