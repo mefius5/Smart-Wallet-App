@@ -83,6 +83,16 @@
             }
         }
         
+        function updateUsername($username, $user_id){
+            global $SW;
+           $sql = "UPDATE users SET username='$username' WHERE user_id='$user_id'";
+            
+            $result = $SW->Database->query($sql);
+            }
+                
+        
+        
+        
         
     }
         
