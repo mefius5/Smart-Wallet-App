@@ -13,8 +13,7 @@
 </script>
 
 
-<?php include ("../../../init.php");
-
+<?php include ("../../../loadAccountSettings.php");
 
 
 ?>
