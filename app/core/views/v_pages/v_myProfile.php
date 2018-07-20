@@ -13,8 +13,24 @@
 </script>
 
 
-<?php include ("../../../loadAccountSettings.php");
+<?php include ("../../../init.php");
 
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT * FROM users WHERE user_id='$user_id'";
+$result = $SW->Database->query($sql);
+
+$count = mysqli_num_rows($result);
+
+if($count == 1){
+    $row = mysqli_fetch_array($result, MYSQL_ASSOC); 
+    $username = $row['username'];
+    $email = $row['email']; 
+}else{
+    echo "There was an error retrieving the username and email from the database";   
+}
+            
+        
 
 ?>
 <!DOCTYPE html>
@@ -79,7 +95,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#">
-                            <?php echo 'Logged as ' . $_SESSION['user_id'];?>
+                            <?php echo 'Logged as ' . $username;?>
                         </a>
                     </li>
                     <li>
@@ -101,7 +117,7 @@
                         <tr data-target="#updateUsername" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
                             <td>Username</td>
                             <td>
-                                <?php echo $_SESSION['username'];?>
+                                <?php echo $username;?>
                             </td>
                         </tr>
                         <tr data-target="#updateEmail">
@@ -142,7 +158,7 @@
 
                         <div class="form-group">
                             <label for="username">Username:</label>
-                            <input class="form-control" type="text" name="username" id="username" maxlength="30" value="<?php echo $_SESSION['username'];?>">
+                            <input class="form-control" type="text" name="username" id="username" maxlength="30" value="<?php echo $username;?>">
                         </div>
 
                     </div>

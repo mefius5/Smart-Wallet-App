@@ -88,8 +88,34 @@
            $sql = "UPDATE users SET username='$username' WHERE user_id='$user_id'";
             
             $result = $SW->Database->query($sql);
+            
+            if(!$result){
+                echo '<div class="alert alert-danger">There was an error updating storing the new username in the database!</div>';
+}
             }
+        
+        
+        
+        
                 
+        function getAccountSettings($user_id){
+            global $SW;
+                
+                $sql = "SELECT * FROM users WHERE user_id='$user_id'";
+                $result = $SW->Database->query($sql);
+
+                $count = mysqli_num_rows($result);
+
+                if($count == 1){
+                    $row = mysqli_fetch_array($result, MYSQL_ASSOC); 
+                    return $row['username'];
+                    return $row['email']; 
+                 }else{
+                        echo "There was an error retrieving the username and email from the database";   
+                    }
+            
+        }
+        
         
         
         
