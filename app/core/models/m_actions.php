@@ -116,6 +116,43 @@
             
         }
         
+        function updatePassword($password, $user_id){
+            global $SW;
+            if($stmt = $SW->Database->prepare("UPDATE users SET password = ? WHERE user_id = ?")){
+                $stmt->bind_param('si', $password, $user_id);
+                $stmt->execute();
+                $stmt->store_result();
+                
+                if($stmt->num_rows == 1){
+                    $stmt->close();
+                    return TRUE;
+                }
+                else{
+                    $stmt->close();
+                    return FALSE;
+                }
+                
+            }
+        }
+        
+         function updateEmail($email, $user_id){
+            global $SW;
+            if($stmt = $SW->Database->prepare("UPDATE users SET email = ? WHERE user_id = ?")){
+                $stmt->bind_param('ss', $email, $user_id);
+                $stmt->execute();
+                $stmt->store_result();
+                
+                if($stmt->num_rows == 1){
+                    $stmt->close();
+                    return TRUE;
+                }
+                else{
+                    $stmt->close();
+                    return FALSE;
+                }
+                
+            }
+        }
         
         
         

@@ -120,11 +120,11 @@ if($count == 1){
                                 <?php echo $username;?>
                             </td>
                         </tr>
-                        <tr data-target="#updateEmail">
+                        <tr data-target="#updateemail" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
                             <td>Email</td>
-                            <td></td>
+                            <td><?php echo $email;?></td>
                         </tr>
-                        <tr sdata-target="#updatePassword">
+                        <tr data-target="#updatepassword" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
                             <td>Password</td>
                             <td>hidden</td>
                         </tr>
@@ -172,10 +172,91 @@ if($count == 1){
             </div>
         </div>
     </form>
+    
+    <!--Update password-->    
+      <form method="post" id="updatepasswordform">
+        <div class="modal" id="updatepassword" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                  <h4 id="myModalLabel">
+                    Enter Current and New password:
+                  </h4>
+              </div>
+              <div class="modal-body">
+                  
+                  <!--Update password message from PHP file-->
+                  <div id="updatepasswordmessage"></div>
+                  
 
+                  <div class="form-group">
+                      <label for="currentpassword" class="sr-only" >Your Current Password:</label>
+                      <input class="form-control" type="password" name="currentpassword" id="currentpassword" maxlength="30" placeholder="Your Current Password">
+                  </div>
+                  <div class="form-group">
+                      <label for="password" class="sr-only" >Choose a password:</label>
+                      <input class="form-control" type="password" name="password" id="password" maxlength="30" placeholder="Choose a password">
+                  </div>
+                  <div class="form-group">
+                      <label for="password2" class="sr-only" >Confirm password:</label>
+                      <input class="form-control" type="password" name="password2" id="password2" maxlength="30" placeholder="Confirm password">
+                  </div>
+                  
+              </div>
+              <div class="modal-footer">
+                  <input class="btn btn-success pull-left" name="updatepassword" type="submit" value="Submit">
+                  
+                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel
+                 </button>
+              </div>
+          </div>
+      </div>
+      </div>
+      </form>
+      
+      <!--Update email-->    
+      <form method="post" id="updateemailform">
+        <div class="modal" id="updateemail" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                  <h4 id="myModalLabel">
+                    Enter new email: 
+                  </h4>
+              </div>
+              <div class="modal-body">
+                  
+                  <!--Update email message from PHP file-->
+                  <div id="updateemailmessage"></div>
+                  
 
+                  <div class="form-group">
+                      <label for="email" >Email:</label>
+                      <input class="form-control" type="email" name="email" id="email" maxlength="50" value="<?php echo $email ?>">
+                  </div>
+                  
+              </div>
+              <div class="modal-footer">
+                  <input class="btn btn-success pull-left" name="updateemail" type="submit" value="Submit">
+                  
+                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel
+                 </button>
+              </div>
+          </div>
+      </div>
+      </div>
+      </form>
+    
+    
 
     <script src="../../../other/javascript/myProfile.js"></script>
 </body>
 
 </html>
+
