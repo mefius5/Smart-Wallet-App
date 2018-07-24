@@ -114,20 +114,24 @@ if($count == 1){
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
-                        <tr data-target="#updateUsername" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
-                            <td>Username</td>
-                            <td>
-                                <?php echo $username;?>
-                            </td>
-                        </tr>
-                        <tr data-target="#updateemail" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
-                            <td>Email</td>
-                            <td><?php echo $email;?></td>
-                        </tr>
-                        <tr data-target="#updatepassword" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
-                            <td>Password</td>
-                            <td>hidden</td>
-                        </tr>
+                       <tbody>
+                            <tr data-target="#updateUsername" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
+                                <td>Username</td>
+                                <td>
+                                    <?php echo $username;?>
+                                </td>
+                            </tr>
+                            <tr data-target="#updateemail" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
+                                <td>Email</td>
+                                <td>
+                                    <?php echo $email;?>
+                                </td>
+                            </tr>
+                            <tr data-target="#updatepassword" data-toggle="modal" data-backdrop='static' data-keyboard='false'>
+                                <td>Password</td>
+                                <td>hidden</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 
