@@ -73,7 +73,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
-                    <li><a href="#">Summary</a></li>
+                    <li><a href="v_summary.php">Summary</a></li>
                     <li><a href="v_myProfile.php">My Profile</a></li>
                     <li><a href="#">Help</a></li>
                 </ul>
@@ -94,7 +94,7 @@
 
     <div class="container container-users">
         <div class="row">
-            <div class="col-md-offset-3 col-md-6">
+            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
               
               <div class="balance-header">
                 <h3>Your account balance:</h3>

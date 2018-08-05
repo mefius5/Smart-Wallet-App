@@ -65,7 +65,7 @@ a {
 
 /*v_users.php*/
 
-.container-users {
+.container-users, .container-statistics {
     margin-top: 50px;
 }
 
@@ -172,6 +172,16 @@ tr:hover{
     cursor: pointer;
 }
 
+.col-title{
+    text-align: center;
+    color: white;
+    
+}
 
 
 
+
+
+.col-md-4 {
+    border: 5px solid green;
+}
