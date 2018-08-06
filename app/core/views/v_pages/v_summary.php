@@ -99,7 +99,8 @@ if($count == 1){
                         </a>
                     </li>
                     <li>
-                        <?php $SW->logout_link(); ?>
+                        <?php $SW->logout_link(); 
+                        echo date('m');?>
                     </li>
 
                 </ul>
@@ -120,14 +121,26 @@ if($count == 1){
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-title">
-                <h3>Month profits</h3>
+            <div class="col-summary col-md-6 col-md-push-3 col-title">
+                <h3 class="col-title">Month Balance</h3>
+                
+                <div class="month-balance">
+                    
+                </div>
             </div>
-            <div class="col-md-4 col-title">
-                <h3>Month balance</h3>
+            <div class="col-summary col-md-3 col-md-pull-6 ">
+                <h3 class="col-title">Month profits</h3>
+                
+                <div id="month-profits" class="month-profits">
+                    
+                </div>
             </div>
-            <div class="col-md-4 col-title">
-                <h3>Month expenses</h3>
+            <div class="col-summary col-md-3 col-title">
+                <h3 class="col-title">Month expenses</h3>
+                
+                <div id="month-expenses" class="month-expenses">
+                    
+                </div>
             </div>
          
         </div>
@@ -139,7 +152,7 @@ if($count == 1){
     
 
     <script src="../../../other/javascript/loadrecords.js"></script>
-    <script src="../../../other/javascript/loadstatistisc.js"></script>
+    <script src="../../../other/javascript/loadsummary.js"></script>
 </body>
 
 </html>
