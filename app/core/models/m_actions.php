@@ -5,6 +5,8 @@
          function __construct(){
         }
         
+    // ADD PAGE  
+        
          function loadRecords($user_id){
              global $SW;
              
@@ -83,6 +85,52 @@
             }
         }
         
+        
+        
+        
+        
+// Summary PAGE
+        
+        function loadMonthSummary($user_id, $profit_expense){
+            global $SW;
+            if($stmt = $SW->Database->prepare("
+            SELECT category, SUM(amount) AS amount 
+            FROM operations 
+            WHERE user_id = ? 
+            AND profit_expense =? 
+            AND MONTH(date) = MONTH(CURRENT_DATE()) 
+            AND YEAR(date) = YEAR(CURRENT_DATE()) 
+            GROUP BY category
+            ORDER BY amount DESC")){
+                $stmt->bind_param('is', $user_id, $profit_expense);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                while($row = $result->fetch_array(MYSQL_ASSOC)){
+                    
+                     $category = $row['category'];
+                     $amount = $row['amount'];
+                    
+                    echo "<div class = ' row record-header record-$profit_expense'>
+                            
+                            <div class='row'>
+                                <div class = 'record pull-left'>$category</div>
+                                <div class = 'record pull-right'>$amount</div>
+                            </div>
+                    
+                        </div>";
+                    
+                }
+                
+            }
+        }
+        
+        
+        
+        
+        
+// My Profile PAGE
+        
+        
         function updateUsername($username, $user_id){
             global $SW;
            $sql = "UPDATE users SET username='$username' WHERE user_id='$user_id'";
@@ -153,6 +201,8 @@
                 
             }
         }
+        
+        
         
         
         

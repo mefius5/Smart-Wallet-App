@@ -124,10 +124,21 @@ a {
     width: 33%;
 }
 
+.record-content-summary{
+    float: left;
+    width: 50%;
+}
+
 .record-amount{
     float: left;
     width: 33%;
     text-align: center;
+}
+
+.record-amount-summary{
+    float: left;
+    width: 50%;
+    text-align: right;
 }
 
 

@@ -99,8 +99,7 @@ if($count == 1){
                         </a>
                     </li>
                     <li>
-                        <?php $SW->logout_link(); 
-                        echo date('m');?>
+                        <?php $SW->logout_link(); ?>
                     </li>
 
                 </ul>
