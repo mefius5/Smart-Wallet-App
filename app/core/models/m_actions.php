@@ -10,7 +10,12 @@
          function loadRecords($user_id){
              global $SW;
              
-              if($stmt = $SW->Database->prepare("SELECT * FROM operations WHERE user_id = ? ORDER BY id DESC LIMIT 10")){
+              if($stmt = $SW->Database->prepare("
+              SELECT * 
+              FROM operations 
+              WHERE user_id = ? 
+              ORDER BY id 
+              DESC LIMIT 10")){
                 $stmt->bind_param("i", $user_id);
                 $stmt->execute();
                 $stmt->store_result();
@@ -30,7 +35,12 @@
             
             global $SW;
             
-            $sql="SELECT * FROM operations WHERE user_id ='$user_id' ORDER BY id DESC LIMIT 10";
+            $sql="
+            SELECT * 
+            FROM operations 
+            WHERE user_id ='$user_id' 
+            ORDER BY id 
+            DESC LIMIT 10";
             $result = $SW->Database->query($sql);
                     
             while($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
@@ -51,7 +61,9 @@
         
         function addRecord($user_id, $profit_expense, $category, $amount, $date){
             global $SW;
-            if($stmt = $SW->Database->prepare("INSERT INTO operations (user_id, profit_expense, category, amount, date) VALUES (?, ?, ?, ?, ?)")){
+            if($stmt = $SW->Database->prepare("
+            INSERT INTO operations (user_id, profit_expense, category, amount, date) 
+            VALUES (?, ?, ?, ?, ?)")){
                 $stmt->bind_param('issds', $user_id, $profit_expense, $category, $amount, $date);
                 $stmt->execute();
                 $stmt->store_result();
@@ -61,7 +73,10 @@
         
         function deleteRecord($record_id){
             global $SW;
-            if($stmt = $SW->Database->prepare("DELETE FROM operations WHERE id = ?")){
+            if($stmt = $SW->Database->prepare("
+            DELETE 
+            FROM operations 
+            WHERE id = ?")){
                 $stmt->bind_param('i', $record_id);
                 $stmt->execute();
                 $stmt->store_result();
@@ -72,7 +87,11 @@
         
         function loadsum($user_id, $profit_expense){
              global $SW;
-            $sql="SELECT SUM(amount) FROM operations WHERE user_id='$user_id' AND profit_expense='$profit_expense'";
+            $sql="
+            SELECT SUM(amount) 
+            FROM operations 
+            WHERE user_id='$user_id' 
+            AND profit_expense='$profit_expense'";
             
             $result = $SW->Database->query($sql);
             
@@ -110,11 +129,11 @@
                      $category = $row['category'];
                      $amount = $row['amount'];
                     
-                    echo "<div class = ' row record-header record-$profit_expense'>
+                    echo "<div class = ' row month-record-summary record-header record-$profit_expense'>
                             
                             <div class='row'>
-                                <div class = 'record pull-left'>$category</div>
-                                <div class = 'record pull-right'>$amount</div>
+                                <div class = 'record record-summary pull-left'>$category</div>
+                                <div class = 'record record-summary pull-right'>$amount</div>
                             </div>
                     
                         </div>";
@@ -133,7 +152,10 @@
         
         function updateUsername($username, $user_id){
             global $SW;
-           $sql = "UPDATE users SET username='$username' WHERE user_id='$user_id'";
+           $sql = "
+           UPDATE users 
+           SET username='$username' 
+           WHERE user_id='$user_id'";
             
             $result = $SW->Database->query($sql);
             
@@ -149,7 +171,10 @@
         function getAccountSettings($user_id){
             global $SW;
                 
-                $sql = "SELECT * FROM users WHERE user_id='$user_id'";
+                $sql = "
+                SELECT * 
+                FROM users 
+                WHERE user_id='$user_id'";
                 $result = $SW->Database->query($sql);
 
                 $count = mysqli_num_rows($result);
@@ -166,7 +191,10 @@
         
         function updatePassword($password, $user_id){
             global $SW;
-            if($stmt = $SW->Database->prepare("UPDATE users SET password = ? WHERE user_id = ?")){
+            if($stmt = $SW->Database->prepare("
+            UPDATE users 
+            SET password = ? 
+            WHERE user_id = ?")){
                 $stmt->bind_param('si', $password, $user_id);
                 $stmt->execute();
                 $stmt->store_result();
@@ -185,7 +213,10 @@
         
          function updateEmail($email, $user_id){
             global $SW;
-            if($stmt = $SW->Database->prepare("UPDATE users SET email = ? WHERE user_id = ?")){
+            if($stmt = $SW->Database->prepare("
+            UPDATE users 
+            SET email = ? 
+            WHERE user_id = ?")){
                 $stmt->bind_param('ss', $email, $user_id);
                 $stmt->execute();
                 $stmt->store_result();

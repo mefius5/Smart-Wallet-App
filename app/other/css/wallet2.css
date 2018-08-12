@@ -117,6 +117,7 @@ a {
     margin: 10px 0px 10px 0px;
     padding: 10px 20px 10px 20px;
     display: inline-block;
+    
 }
 
 .record-content{
@@ -124,23 +125,11 @@ a {
     width: 33%;
 }
 
-.record-content-summary{
-    float: left;
-    width: 50%;
-}
-
 .record-amount{
     float: left;
     width: 33%;
     text-align: center;
 }
-
-.record-amount-summary{
-    float: left;
-    width: 50%;
-    text-align: right;
-}
-
 
 .record-date{
     font-style: italic;
@@ -186,13 +175,13 @@ tr:hover{
 .col-title{
     text-align: center;
     color: white;
-    
 }
 
-
-
-
-
 .col-summary{
-    border: 5px solid green;
+/*    border: 5px solid green;*/
+}
+
+.record-summary{
+    margin:5px;
+    padding: 10px 8px 10px 8px;
 }

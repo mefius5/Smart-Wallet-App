@@ -10,7 +10,11 @@ class Auth{
         global $SW;
         
         
-        if($stmt = $SW->Database->prepare("SELECT * FROM users WHERE username = ? AND password = ?")){
+        if($stmt = $SW->Database->prepare("
+        SELECT * 
+        FROM users 
+        WHERE username = ? 
+        AND password = ?")){
             $stmt->bind_param("ss", $user, $password);
             $stmt->execute();
             $stmt->store_result();
@@ -33,7 +37,11 @@ class Auth{
     function saveRow($username, $password, $column){
         
         global $SW; 
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+        $sql = "
+        SELECT * 
+        FROM users 
+        WHERE username = '$username' 
+        AND password = '$password'";
         $result = mysqli_query($SW->Database, $sql);
         
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -43,25 +51,17 @@ class Auth{
                 
         }else{
             return $row[$column]; 
-        }
-        
-        
-        
-        
-//        global $SW; 
-//        $stmt = $SW->Database->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
-//        $stmt->bind_param("ss", $username, $password);
-//        
-//        $row = mysqli_fetch_array($stmt, MYSQLI_ASSOC);
-//        
-//        return $row[$column]; 
+        } 
     }
     
     
     
     function checkExistingUsername($username){
         global $SW;
-        if($stmt = $SW->Database->prepare("SELECT * FROM users WHERE username = ?")){
+        if($stmt = $SW->Database->prepare("
+        SELECT * 
+        FROM users 
+        WHERE username = ?")){
             $stmt->bind_param("s", $username);
             $stmt->execute();
             $stmt->store_result();
@@ -82,7 +82,10 @@ class Auth{
     
      function checkExistingEmail($email){
         global $SW;
-        if($stmt = $SW->Database->prepare("SELECT * FROM users WHERE email = ?")){
+        if($stmt = $SW->Database->prepare("
+        SELECT * 
+        FROM users 
+        WHERE email = ?")){
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $stmt->store_result();
@@ -109,7 +112,9 @@ class Auth{
     
     function addUser($username, $email, $password){
         global $SW;
-         if($stmt = $SW->Database->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)")){
+         if($stmt = $SW->Database->prepare("
+         INSERT INTO users (username, email, password) 
+         VALUES (?, ?, ?)")){
             $stmt->bind_param('sss', $username, $email, $password);
             $stmt->execute();
             $stmt->store_result();
