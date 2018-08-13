@@ -185,3 +185,7 @@ tr:hover{
     margin:5px;
     padding: 10px 8px 10px 8px;
 }
+
+.month-chart{
+        border: 5px solid green;
+}

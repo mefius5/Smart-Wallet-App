@@ -34,4 +34,12 @@ $(function(){
             $('#month-summary-profit').html(data);
         }
     });
+    $.ajax({
+        type:"POST",
+        url:'../../../loadMonthBalance.php',
+        data:{profit_expense: expense},
+        success: function(data){
+            $('#month-summary-expense').html(data);
+        }
+    });
 });

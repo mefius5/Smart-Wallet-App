@@ -128,14 +128,20 @@ if($count == 1){
                        <div class="month-balance-profit col-xs-6">
                           <h3 class="col-title">Month Profit</h3>
 
-                          <div id="month-summary-profit" class="month-summary-profit balance-amount">PROFIT
-                          </div>    
+                          <h3 id="month-summary-profit" class="balance-amount-profit">PROFIT</h3>    
                        </div>
 
                        <div class="month-balance-expense col-xs-6">
                            <h3 class="col-title">Month Expense</h3>
-                           <div class="month-summary-expense">EXPENSE</div>
+                           
+                           <h3 id="month-summary-expense" class="balance-amount-expense">EXPENSE</h3>
                        </div>
+                       
+                    </div>
+                    
+                    <div class="month-chart">CHART
+                        
+                        
                     </div>
                 </div>
             </div>

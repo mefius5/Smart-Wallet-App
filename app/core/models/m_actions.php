@@ -143,6 +143,28 @@
             }
         }
         
+        function loadMonthBalance($user_id, $profit_expense){
+            global $SW;
+            if($stmt = $SW->Database->prepare("
+            SELECT SUM(amount) AS amount
+            FROM operations
+            WHERE user_id = ?
+            AND profit_expense = ?
+            AND MONTH(date) = MONTH(CURRENT_DATE()) 
+            AND YEAR(date) = YEAR(CURRENT_DATE()) ")){
+                $stmt->bind_param('is', $user_id, $profit_expense);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                
+                while($row = $result->fetch_array(MYSQL_ASSOC)){
+        
+                     $amount = $row['amount'];
+                    echo $amount; 
+               
+                }
+            }
+        }
+        
         
         
         
