@@ -56,6 +56,33 @@ if($count == 1){
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
+    <script>
+        window.onload = function() {
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Desktop Search Engine Market Share - 2016"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: document.getElementById("month-profits"), label: "Google"},
+                    {y: 7.31, label: "Bing"},
+                    {y: 7.06, label: "Baidu"},
+                    {y: 4.91, label: "Yahoo"},
+                    {y: 1.26, label: "Others"}
+                ]
+            }]
+        });
+        chart.render();
+
+        }
+</script>
 
     <?php $SW->head(); ?>
 
@@ -139,7 +166,7 @@ if($count == 1){
                        
                     </div>
                     
-                    <div class="month-chart">CHART
+                    <div id="chartContainer" style="height: 370px; width: 100%;">
                         
                         
                     </div>
@@ -170,6 +197,7 @@ if($count == 1){
 
     <script src="../../../other/javascript/loadrecords.js"></script>
     <script src="../../../other/javascript/loadsummary.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>
