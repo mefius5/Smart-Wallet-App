@@ -27,8 +27,18 @@ if($count == 1){
     $username = $row['username'];
     $email = $row['email']; 
 }else{
-    echo "There was an error retrieving the username and email from the database";   
+    echo "There was an error retrieving the username and email from the database";  
 }
+$query = "
+SELECT profit_expense, SUM(amount) AS amount 
+FROM operations
+WHERE user_id= $user_id
+AND MONTH(date) = MONTH(CURRENT_DATE()) 
+AND YEAR(date) = YEAR(CURRENT_DATE()) 
+GROUP BY profit_expense";
+
+$result2 = $SW->Database->query($query);
+
             
         
 
@@ -44,7 +54,6 @@ if($count == 1){
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
     <link rel="stylesheet" type="text/css" href="../../../other/css/wallet2.css">
 
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -52,37 +61,52 @@ if($count == 1){
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
-
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     
-    <script>
-        window.onload = function() {
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-        var chart = new CanvasJS.Chart("chartContainer", {
-            animationEnabled: true,
-            title: {
-                text: "Desktop Search Engine Market Share - 2016"
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Profit/Expense', 'Amount'],
+          
+        <?php
+            while($row = $result2->fetch_array(MYSQL_ASSOC)){
+                echo "['".$row['profit_expense']."' , ".$row['amount']."],";
+            }
+            ?>
+        ]);
+
+        var options = {
+            legend: {
+                position: 'top', 
+                alignment: 'center', 
+                textStyle: {color:'white', fontName: 'Lato', fontSize: '18'} },
+            colors: ["red", "#39d339"],
+            areaOpacity: 0.24,
+            lineWidth: 1,
+            backgroundColor: 'transparent',
+            chartArea: {
+            backgroundColor: "transparent",
+            width: '100%',
+            height: '80%'
             },
-            data: [{
-                type: "pie",
-                startAngle: 240,
-                yValueFormatString: "##0.00\"%\"",
-                indexLabel: "{label} {y}",
-                dataPoints: [
-                    {y: document.getElementById("month-profits"), label: "Google"},
-                    {y: 7.31, label: "Bing"},
-                    {y: 7.06, label: "Baidu"},
-                    {y: 4.91, label: "Yahoo"},
-                    {y: 1.26, label: "Others"}
-                ]
-            }]
-        });
-        chart.render();
+            
+            pieSliceBorderColor: 'black',
+         
+            
+        
+           
+        };
 
-        }
-</script>
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 
     <?php $SW->head(); ?>
 
@@ -166,7 +190,7 @@ if($count == 1){
                        
                     </div>
                     
-                    <div id="chartContainer" style="height: 370px; width: 100%;">
+                    <div id="piechart">
                         
                         
                     </div>
@@ -197,7 +221,7 @@ if($count == 1){
 
     <script src="../../../other/javascript/loadrecords.js"></script>
     <script src="../../../other/javascript/loadsummary.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+ 
 </body>
 
 </html>
