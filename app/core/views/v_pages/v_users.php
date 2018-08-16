@@ -72,8 +72,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-plus-circle"></i> <i class="fas fa-minus-circle"></i></a></li>
                     <li><a href="v_summary.php">Summary</a></li>
+                    <li><a href="v_findRecord.php">Find</a></li>
                     <li><a href="v_myProfile.php">My Profile</a></li>
                     <li><a href="#">Help</a></li>
                 </ul>

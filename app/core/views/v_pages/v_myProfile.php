@@ -89,6 +89,7 @@ if($count == 1){
                 <ul class="nav navbar-nav">
                     <li><a href="v_users.php"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
                     <li><a href="v_summary.php">Summary</a></li>
+                    <li><a href="v_findRecord.php">Find</a></li>
                     <li class="active"><a href="#">My Profile</a></li>
                     <li><a href="#">Help</a></li>
                 </ul>

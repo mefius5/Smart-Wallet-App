@@ -85,7 +85,7 @@ $result2 = $SW->Database->query($query);
                 position: 'top', 
                 alignment: 'center', 
                 textStyle: {color:'white', fontName: 'Lato', fontSize: '18'} },
-            colors: ["red", "#39d339"],
+            colors: ["red", "#1a981a"],
             areaOpacity: 0.24,
             lineWidth: 1,
             backgroundColor: 'transparent',
@@ -95,7 +95,11 @@ $result2 = $SW->Database->query($query);
             height: '80%'
             },
             
-            pieSliceBorderColor: 'black',
+            pieSliceBorderColor: '#4d4949',
+            pieSliceTextStyle: {color:'#ebf0ea' },
+            pieHole: 0.4,
+            
+            
          
             
         
@@ -140,6 +144,7 @@ $result2 = $SW->Database->query($query);
                 <ul class="nav navbar-nav">
                     <li><a href="v_users.php"><i class="fas fa-plus-circle"></i> Add <i class="fas fa-minus-circle"></i></a></li>
                     <li class="active"><a href="#">Summary</a></li>
+                    <li><a href="v_findRecord.php">Find</a></li>
                     <li><a href="v_myProfile.php">My Profile</a></li>
                     <li><a href="#">Help</a></li>
                 </ul>
