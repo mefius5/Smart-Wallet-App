@@ -59,7 +59,7 @@
 
             <div class="form-group">
                 <label for="exampleSelect1">Category</label>
-                <select class="form-control" id="exampleSelect1" name="expenseCategory" value="<?php echo $this->getData('expenseCategory');?>">
+                <select class="form-control select-findrecord" id="exampleSelect1" name="expenseCategory" value="<?php echo $this->getData('expenseCategory');?>">
                    <option selected hidden name="choose_category">Choose category...</option>
                     <option>Bills</option>
 				    <option>Car</option>
