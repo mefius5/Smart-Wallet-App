@@ -108,10 +108,27 @@
                     
                     <div class="form-group select-findrecord">
                         
-                        <select class="form-control" id="exampleSelect1" name="expenseCategory" value="">
+                        <select class="form-control" id="select-profit-expense" name="select-profit-expense" value="">
                            <option selected hidden name="choose_category">Choose profit/expense...</option>
-                            <option>Profit</option>
-                            <option>Expense</option>
+                            <option value = "profit">Profit</option>
+                            <option value = "expense">Expense</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group select-findrecord">
+                        
+                        <select class="form-control" id="select-profit-category" name="select-profit-category" value="">
+                           <option selected hidden name="choose_category">Choose profit category...</option>
+                            <option>Salary</option>
+                            <option>Odd Jobs</option>
+                            <option>Winnings</option>
+                            <option>Pension</option>
+                            <option>Investments</option>
+                            <option>Savings</option>
+                            <option>Rent</option>
+                            <option>Gifts</option>
+                            <option>Sale</option>
+                            <option>Others</option>
                         </select>
                     </div>
                     
@@ -156,6 +173,7 @@
     
 
     <script src="../../../other/javascript/loadrecords.js"></script>
+    <script src="../../../other/javascript/findRecord.js"></script>
 </body>
 
 </html>
