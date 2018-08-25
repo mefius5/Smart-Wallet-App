@@ -190,26 +190,35 @@ tr:hover{
         border: 5px solid green;
 }
 
+.select-findrecord{
+    position: relative;
+    margin: 5px;
+}
 
-.select-findrecord > select{
+.select-findrecord > select {
     background-color: transparent;
     color: white;
     font-size: 16px;
     border-radius: 6px;
     border: 2px solid #2e79d1;
-    margin: 30px;
+    margin: 20px;
     padding: 10px;
     height: 50px;
-    cursor: pointer;
-    
+    cursor: pointer;  
 }
 
 
 select > option{
-    background-color: #1a1c1d;
-    margin:10px;
-    padding:40px;
-    text-shadow:none;
-    border-radius:3px;
-    cursor:pointer;
+    background-color: #1a1c1d; 
+}
+
+#select-profit-category, #select-expense-category {
+    position: absolute;
+}
+
+#datepicker-header {
+    margin-top: 115px;
+    color:white;
+    font-size: 18px;
+    text-align: center;
 }

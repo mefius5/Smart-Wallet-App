@@ -32,16 +32,21 @@
    
     <link rel="stylesheet" type="text/css" href="../../../other/css/wallet2.css">
     
+    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css”>
+    
+   
+    
    <script
    src="http://code.jquery.com/jquery-2.2.4.min.js"
    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
    crossorigin="anonymous"></script>
 
-   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+    </script>
+    
+    <script type=’text/javascript’ src=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js”></script>
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-
-
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -115,9 +120,11 @@
                         </select>
                     </div>
                     
+                    
+                       
                     <div class="form-group select-findrecord">
-                        
-                        <select class="form-control" id="select-profit-category" name="select-profit-category" value="">
+
+                        <select class="form-control select-category" id="select-profit-category" name="select-profit-category" value="">
                            <option selected hidden name="choose_category">Choose profit category...</option>
                             <option>Salary</option>
                             <option>Odd Jobs</option>
@@ -130,7 +137,28 @@
                             <option>Sale</option>
                             <option>Others</option>
                         </select>
+                        
+                        <select class="form-control select-category" id="select-expense-category" name="select-expense-category" value="">
+                           <option selected hidden name="choose_category">Choose expense category...</option>
+                            <option>Bills</option>
+                            <option>Car</option>
+                            <option>Shopping</option>
+                            <option>Clothes</option>
+                            <option>Medicines</option>
+                            <option>Parties</option>
+                            <option>Transport</option>
+                            <option>Rent</option>
+                            <option>Restaurant</option>
+                            <option>Others</option>
+                        </select>
                     </div>
+                      
+                       
+                    <p id="datepicker-header"> SELECT</p>
+                        
+                    
+                    
+                   
                     
                     
                     
