@@ -32,7 +32,7 @@
    
     <link rel="stylesheet" type="text/css" href="../../../other/css/wallet2.css">
     
-    <link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css”>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     
    
     
@@ -47,6 +47,8 @@
     <script type=’text/javascript’ src=”https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js”></script>
     
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -109,11 +111,16 @@
                <h2><div id="balance-amount" class="balance-amount" >
               </div></h2>
               
+              
+              
+              
+              
+              
                 <form action="" method="post" id="findRecord">
                     
                     <div class="form-group select-findrecord">
                         
-                        <select class="form-control" id="select-profit-expense" name="select-profit-expense" value="">
+                        <select class="form-control" id="select-profit-expense" name="select-profit-expense" value="dryjdy">
                            <option selected hidden name="choose_category">Choose profit/expense...</option>
                             <option value = "profit">Profit</option>
                             <option value = "expense">Expense</option>
@@ -138,7 +145,7 @@
                             <option>Others</option>
                         </select>
                         
-                        <select class="form-control select-category" id="select-expense-category" name="select-expense-category" value="">
+                        <select class="form-control select-category" id="select-expense-category" name="select-expense-category" value="djjsrth">
                            <option selected hidden name="choose_category">Choose expense category...</option>
                             <option>Bills</option>
                             <option>Car</option>
@@ -153,8 +160,19 @@
                         </select>
                     </div>
                       
-                       
-                    <p id="datepicker-header"> SELECT</p>
+                    <div id="datepicker">  
+                        <div class="form-group"> 
+                            <label class="control-label datepicker-label" for="date">Date</label>
+                            <input class="form-control datepicker" id="date" name="date" placeholder="yyyy-mm-dd" type="text" value="arbebneb"/>
+                        </div>
+                    </div>
+                    
+                    <div id="submit-find">
+                    
+                          <div class="form-group"> <!-- Submit button -->
+                            <button class="btn btn-primary submit-find-form " name="submit" type="submit">Submit</button>
+                          </div>
+                    </div>
                         
                     
                     

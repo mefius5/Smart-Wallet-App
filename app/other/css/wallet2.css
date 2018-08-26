@@ -222,3 +222,26 @@ select > option{
     font-size: 18px;
     text-align: center;
 }
+
+.datepicker {
+    margin: 0px 30px 10px 30px;
+    width:50%;
+    width: 240px;
+}
+
+.datepicker-label {
+    margin: 100px 20px 10px 30px;
+    color:white;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: 400;
+}
+
+#datepicker-submit {
+    width:100%;
+}
+
+.submit-find-form {
+    margin-left: 30px;
+}

@@ -1,7 +1,20 @@
 $(function(){
+    
+    var date_input=$('input[name="date"]'); 
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    var options={
+        format: 'yyyy-mm-dd',
+        container: container,
+        todayHighlight: false,
+        autoclose: true,
+      };
+    date_input.datepicker(options);
+    
     $('#select-profit-category').hide();
     $('#select-expense-category').hide();
-    $('#select-date').hide();
+    $('#datepicker').hide();
+    $('#submit-find').hide();
+    
    
     
     
@@ -17,8 +30,26 @@ $(function(){
     
     $('.select-category').change(function(){ 
         if($('.select-category option:selected').val()){
-            $('#select-date').show();
+            $('#datepicker').show();
         }
     });
+    
+    $('.datepicker').datepicker().on('changeDate', function() {
+       $('#date').change();
+    });
+    $('#date').change(function () {
+//        console.log($('#date').val());
+        $('#submit-find').show(); 
+    });
+    
+    
+    
+     $('#findRecord').submit(function(e){
+         e.preventDefault();
+         
+         var dataString = $(this).serializeArray();
+         console.log(dataString);
+     });
+    
   
   });
