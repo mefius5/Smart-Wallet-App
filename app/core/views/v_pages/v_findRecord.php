@@ -57,6 +57,31 @@
 </head>
 
 <body>
+  
+  <script>
+      $(function(){
+      
+        $('#findRecord').submit(function(e){
+             e.preventDefault();
+
+             var dataString = $(this).serializeArray();
+             console.log(dataString);
+
+             $.ajax({
+                 type:'POST',
+                 url:'../../../findRecord.php',
+                 data: dataString,
+                 success: function(data){
+                     $('#find-result').html(data);
+                 }
+
+             });
+         });
+      });
+    
+    </script>
+   
+   
     
     
 
@@ -120,7 +145,7 @@
                     
                     <div class="form-group select-findrecord">
                         
-                        <select class="form-control" id="select-profit-expense" name="select-profit-expense" value="dryjdy">
+                        <select class="form-control" id="select-profit-expense" name="select-profit-expense" value="">
                            <option selected hidden name="choose_category">Choose profit/expense...</option>
                             <option value = "profit">Profit</option>
                             <option value = "expense">Expense</option>
@@ -145,7 +170,7 @@
                             <option>Others</option>
                         </select>
                         
-                        <select class="form-control select-category" id="select-expense-category" name="select-expense-category" value="djjsrth">
+                        <select class="form-control select-category" id="select-expense-category" name="select-expense-category" value="">
                            <option selected hidden name="choose_category">Choose expense category...</option>
                             <option>Bills</option>
                             <option>Car</option>
@@ -163,7 +188,7 @@
                     <div id="datepicker">  
                         <div class="form-group"> 
                             <label class="control-label datepicker-label" for="date">Date</label>
-                            <input class="form-control datepicker" id="date" name="date" placeholder="yyyy-mm-dd" type="text" value="arbebneb"/>
+                            <input class="form-control datepicker" id="date" name="date" placeholder="yyyy-mm-dd" type="text" value=""/>
                         </div>
                     </div>
                     
@@ -173,14 +198,11 @@
                             <button class="btn btn-primary submit-find-form " name="submit" type="submit">Submit</button>
                           </div>
                     </div>
-                        
-                    
-                    
-                   
-                    
-                    
+                            
                     
                 </form>
+                
+                <div id="find-result"></div>
               
               
             </div>

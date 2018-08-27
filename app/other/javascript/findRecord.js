@@ -42,14 +42,5 @@ $(function(){
         $('#submit-find').show(); 
     });
     
-    
-    
-     $('#findRecord').submit(function(e){
-         e.preventDefault();
-         
-         var dataString = $(this).serializeArray();
-         console.log(dataString);
-     });
-    
   
   });
