@@ -17,7 +17,9 @@
 </script>
 
 
-<?php include ("../../../init.php");?>
+<?php include ("../../../init.php");
+
+$user_id = $_SESSION['user_id'];?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -195,7 +197,7 @@
                     <div id="submit-find">
                     
                           <div class="form-group"> <!-- Submit button -->
-                            <button class="btn btn-primary submit-find-form " name="submit" type="submit">Submit</button>
+                            <button class="btn btn-primary btn-lg submit-find-form " name="submit" type="submit">Submit</button>
                           </div>
                     </div>
                             

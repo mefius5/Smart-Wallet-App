@@ -227,12 +227,14 @@ select > option{
     margin: 0px 30px 10px 30px;
     width:50%;
     width: 240px;
+    color:white;
+    
 }
 
 .datepicker-label {
     margin: 100px 20px 10px 30px;
     color:white;
-    font-size: 16px;
+    font-size: 18px;
     font-family: 'Lato', sans-serif;
     text-align: center;
     font-weight: 400;
@@ -245,3 +247,22 @@ select > option{
 .submit-find-form {
     margin-left: 30px;
 }
+
+input.datepicker{
+    font-size: 16px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #2e79d1;   
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: white;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: white;
+}
+
+.alert-find-record{
+    margin-left: 20px;
+}
+

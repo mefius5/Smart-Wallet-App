@@ -239,7 +239,7 @@
             UPDATE users 
             SET email = ? 
             WHERE user_id = ?")){
-                $stmt->bind_param('ss', $email, $user_id);
+                $stmt->bind_param('si', $email, $user_id);
                 $stmt->execute();
                 $stmt->store_result();
                 
@@ -251,6 +251,37 @@
                     $stmt->close();
                     return FALSE;
                 }
+                
+            }
+        }
+        
+        function findRecord($user_id, $profit_expense, $category, $date){
+            global $SW;
+            if($stmt = $SW->Database->prepare("
+            SELECT *
+            FROM operations
+            WHERE user_id = ?
+            AND profit_expense = ?
+            AND category = ?
+            AND date = ?
+            ORDER BY amount DESC")){
+                $stmt->bind_param('isss', $user_id, $profit_expense, $category, $date);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                
+                while($row = $result->fetch_array(MYSQL_ASSOC)){
+                    $record_id = $row['id'];
+                    $category = $row['category'];
+                    $amount = $row['amount'];
+                    $date = $row['date'];
+                    
+                    echo "<div id='$record_id' class='record-header record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
+                        <div class='record record-content'>$category</div>
+                        <div class='record record-amount'>$amount</div>
+                        <div class='record record-date '>$date</div>
+                      </div>"; 
+                }
+                
                 
             }
         }
