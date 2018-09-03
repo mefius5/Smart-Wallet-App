@@ -269,18 +269,25 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
                 
-                while($row = $result->fetch_array(MYSQL_ASSOC)){
-                    $record_id = $row['id'];
-                    $category = $row['category'];
-                    $amount = $row['amount'];
-                    $date = $row['date'];
+                if($result->num_rows > 0){
                     
-                    echo "<div id='$record_id' class='record-header record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
-                        <div class='record record-content'>$category</div>
-                        <div class='record record-amount'>$amount</div>
-                        <div class='record record-date '>$date</div>
-                      </div>"; 
+                    while($row = $result->fetch_array(MYSQL_ASSOC)){
+                        $record_id = $row['id'];
+                        $category = $row['category'];
+                        $amount = $row['amount'];
+                        $date = $row['date'];
+
+                        echo "<div id='$record_id' class='record-header record-find record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
+                            <div class='record record-content'>$category</div>
+                            <div class='record record-amount'>$amount</div>
+                            <div class='record record-date '>$date</div>
+                          </div>"; 
+                    }
+                }else{
+                    echo '<div class="alert alert-danger alert-find-record">There is no record on this date!</div>';
                 }
+                
+                
                 
                 
             }

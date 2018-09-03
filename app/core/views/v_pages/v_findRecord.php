@@ -105,17 +105,17 @@ $user_id = $_SESSION['user_id'];?>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="v_users.php"><i class="fas fa-plus-circle"></i> <i class="fas fa-minus-circle"></i></a></li>
-                    <li><a href="v_summary.php">Summary</a></li>
-                    <li class = "active"><a href="#">Find</a></li>
-                    <li><a href="v_myProfile.php">My Profile</a></li>
-                    <li><a href="#">Help</a></li>
+               <ul class="nav navbar-nav">
+                    <li><a href="v_users.php"><i class="fas fa-plus-circle fa-lg"></i> <i class="fas fa-minus-circle fa-lg"></i></a></li>
+                    <li><a href="v_summary.php"><i class="fas fa-chart-pie fa-lg"></i></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-search fa-lg"></i></a></li>
+                    <li><a href="v_myProfile.php"><i class="fas fa-cogs fa-lg"></i></a></li>
+                    <li><a href="v_contact.php"><i class="fas fa-question-circle fa-lg"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#">
-                            <b><?php echo 'Logged as ' . $_SESSION['username'];?></b>
+                            Logged as <b><?php echo $_SESSION['username'];?></b>
                         </a>
                     </li>
                     <li>
@@ -197,7 +197,7 @@ $user_id = $_SESSION['user_id'];?>
                     <div id="submit-find">
                     
                           <div class="form-group"> <!-- Submit button -->
-                            <button class="btn btn-primary btn-lg submit-find-form " name="submit" type="submit">Submit</button>
+                            <button class="btn btn-primary btn-lg submit-find-form " name="submit" type="submit">Find</button>
                           </div>
                     </div>
                             

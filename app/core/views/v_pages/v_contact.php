@@ -1,21 +1,3 @@
-<script>
- var record_id;
-    
-       function editRecord(e) {  
-        record_id = e.id
-        console.log(record_id);
-    };
-    
-//    function deleteRecord() {
-//        console.log(id);
-//    }
-//    
-    
-    
-   
-
-</script>
-
 
 <?php include ("../../../init.php");?>
 <!DOCTYPE html>
@@ -23,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Help</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
     
@@ -72,11 +54,11 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"><i class="fas fa-plus-circle fa-lg"></i> <i class="fas fa-minus-circle fa-lg"></i></a></li>
+                    <li><a href="v_users.php"><i class="fas fa-plus-circle fa-lg"></i> <i class="fas fa-minus-circle fa-lg"></i></a></li>
                     <li><a href="v_summary.php"><i class="fas fa-chart-pie fa-lg"></i></a></li>
                     <li><a href="v_findRecord.php"><i class="fas fa-search fa-lg"></i></a></li>
                     <li><a href="v_myProfile.php"><i class="fas fa-cogs fa-lg"></i></a></li>
-                    <li><a href="v_contact.php"><i class="fas fa-question-circle fa-lg"></i></a></li>
+                    <li class="active"><a href="#"><i class="fas fa-question-circle fa-lg"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
@@ -93,64 +75,35 @@
         </div>
     </nav>
 
-    <div class="container container-users">
-        <div class="row">
-            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
-              
-              <div class="balance-header">
-                <h3>Your account balance:</h3>
-              </div>
-              
-               <h2><div id="balance-amount" class="balance-amount" >
-              </div></h2>
+    <div class="container container-contact">
+       <div class="row">
+           <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+               <div class="contact-header">
+                   <h2>Contact me:</h2>
+               </div>
+               <div class="contact-content">
+                   <form action="" method="post" id="contact-message">
+                       <div class="form-group">
+                           <label for="message" class="message-label">Message:</label>
+                           <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
+                       </div>
+                       
+                       <div class="form-group"> 
+                            <button class="btn btn-primary btn-lg send-message-form " name="send-message" type="submit">Send Message</button>
+                        </div>
+                   </form>
+               </div>
                
-                <div class="buttons">
-                    
-                    <?php $SW->addProfit_link(); ?>
-                    
-                    <?php $SW->addExpense_link(); ?>
-
-                </div>
-                <div id="records" class="records">
-                    
-                </div>
-
-            </div>
+               
+           </div>
+           
+       </div>
+        
 
 
-        </div>
-
-
-    </div>
-    
-<!--    Delete form-->
-   
-     
-        <div class="modal" id="deleteModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button class="close" data-dismiss="modal">
-                    &times;
-                  </button>
-                  <h4 id="myModalLabel">
-                    Are you sure to delete this record?
-                  </h4>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger pull-left delete" name="delete" type="submit" data-dismiss="modal"> Delete</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
-          </div>
-      </div>
-      </div>
-      
-    
+    </div> 
     
 
-    <script src="../../../other/javascript/loadrecords.js"></script>
 </body>
 
 </html>

@@ -34,9 +34,23 @@ if(isset($_POST['date'])){
        
         
     }else{
-        $select_profit_expense = 'expense';  
-        $profit_expense = filter_var($select_profit_expense, FILTER_SANITIZE_STRING);
-        $expenseCategory = filter_var($SW->Template->getData('expense_category'), FILTER_SANITIZE_STRING);
+        if($SW->Template->validateDate($SW->Template->getData('date'), 'Y-m-d') == FALSE){
+            echo '<div class="alert alert-danger alert-find-record">Invalid date format!</div>';
+        }else{
+            $select_profit_expense = 'expense'; 
+            $profit_expense = filter_var($select_profit_expense, FILTER_SANITIZE_STRING);
+            $expenseCategory = filter_var($SW->Template->getData('expense_category'), FILTER_SANITIZE_STRING);
+            $date = $SW->Template->getData('date');
+             
+            $profit_expense = $SW->Auth->prepareVariables($profit_expense);
+            $date = $SW->Auth->prepareVariables($date);
+            $expenseCategory = $SW->Auth->prepareVariables($expenseCategory);
+            $user_id = $SW->Auth->prepareVariables($SW->Template->getData('user_id'));
+             
+             $SW->Actions->findRecord($user_id, $profit_expense, $expenseCategory, $date);  
+         }
+    
+        
     }
     
     

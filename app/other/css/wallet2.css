@@ -65,7 +65,7 @@ a {
 
 /*v_users.php*/
 
-.container-users, .container-statistics, .container-find {
+.container-users, .container-statistics, .container-find{
     margin-top: 50px;
 }
 
@@ -149,7 +149,7 @@ a {
 
 /*myProfile.php*/
 
-.container-myprofile {
+.container-myprofile, .container-contact {
     margin-top: 100px;
 }
 
@@ -208,7 +208,7 @@ tr:hover{
 }
 
 
-select > option{
+.select-findrecord > select > option{
     background-color: #1a1c1d; 
 }
 
@@ -262,7 +262,41 @@ input:-moz-placeholder, textarea:-moz-placeholder {
   color: white;
 }
 
-.alert-find-record{
-    margin-left: 20px;
+.alert-find-record, .record-find {
+    margin-left: 25px;
 }
 
+.fa{
+   font-size: 5px; 
+}
+
+
+
+
+
+.container-contact {
+    color: white;   
+}
+
+.message-label {
+     color:white;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: 400;
+}
+
+.contact-header {
+    margin-bottom: 50px;
+}
+
+textarea#message{
+    padding: 5px;
+    background: transparent;
+    background-color: rgba(28, 25, 25, 0.7);
+    border: 2px solid #6690c1;
+    border-radius: 7px;
+    color:white;
+    font-size: 18px;
+    font-family: 'Lato', sans-serif;
+}
