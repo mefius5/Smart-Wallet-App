@@ -1,4 +1,4 @@
-<?php include ("app/init.php") ?>
+<?php include ("../../../init.php");?>
 
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
-    <link rel="stylesheet" type="text/css" href="app/other/css/wallet2.css">
+     <link rel="stylesheet" type="text/css" href="../../../other/css/wallet2.css">
     
    <script
    src="http://code.jquery.com/jquery-2.2.4.min.js"
@@ -30,7 +30,7 @@
  
  <nav class="navbar navbar-inverse">
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
+   
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -41,11 +41,11 @@
       <a class="navbar-brand" href="#">Smart Wallet</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a  href="#"><i class="fas fa-home fa-lg"></i></a></li>
-        <li><a href="app/core/views/v_pages/v_about.php"><i class="fas fa-question-circle fa-lg"></i></a></li>
+        <li><a  href="../../../../index.php"><i class="fas fa-home fa-lg"></i></a></li>
+        <li class="active"><a href="#"><i class="fas fa-question-circle fa-lg"></i></a></li>
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
@@ -59,33 +59,13 @@
   
   <div class="container">
       <div class="row">
-          <div class="col-lg-12">
-             <div id="content">
-                  <h1>Smart Wallet</h1>
-                  <h3>Take Control Of Your Money</h3>
-                  <hr>
-                  
-                  <?php $SW->signup_link();?>
-                  
-             </div>
+          <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
+             
+             
              
           </div>
       </div>
   </div>
   
-  
-  
-  
-<!--
-   <script
-   src="http://code.jquery.com/jquery-2.2.4.min.js"
-   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-   crossorigin="anonymous"></script>
-
-   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
--->
-   
-   
-    
 </body>
 </html>

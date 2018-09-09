@@ -118,9 +118,8 @@ class Auth{
             $stmt->bind_param('sss', $username, $email, $password);
             $stmt->execute();
             $stmt->store_result();
-            $stmt->fetch();
-            $stmt->close();
-        }
+             $stmt->close();
+         }
     }     
     
     function checkLoginStatus(){

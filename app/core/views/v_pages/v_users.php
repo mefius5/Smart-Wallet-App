@@ -1,23 +1,7 @@
-<script>
- var record_id;
-    
-       function editRecord(e) {  
-        record_id = e.id
-        console.log(record_id);
-    };
-    
-//    function deleteRecord() {
-//        console.log(id);
-//    }
-//    
-    
-    
-   
-
-</script>
-
+<script src="../../../other/javascript/getRecordId.js"></script>
 
 <?php include ("../../../init.php");?>
+
 <!DOCTYPE html>
 <html lang="en">
 

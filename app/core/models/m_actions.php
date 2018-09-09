@@ -293,6 +293,18 @@
             }
         }
         
+        function sendMessage($email, $message){
+            global $SW;
+            if($stmt = $SW->Database->prepare("
+            INSERT INTO messages (email, message)
+            VALUES (?, ?)")){
+                $stmt->bind_param('ss', $email, $message);
+                $stmt->execute();
+                $stmt->store_result();
+                $stmt->close();
+            }
+        }
+        
         
         
         

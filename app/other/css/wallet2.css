@@ -270,20 +270,8 @@ input:-moz-placeholder, textarea:-moz-placeholder {
    font-size: 5px; 
 }
 
-
-
-
-
 .container-contact {
     color: white;   
-}
-
-.message-label {
-     color:white;
-    font-size: 18px;
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-    font-weight: 400;
 }
 
 .contact-header {
@@ -299,4 +287,8 @@ textarea#message{
     color:white;
     font-size: 18px;
     font-family: 'Lato', sans-serif;
+}
+
+#contact-alert {
+    margin-left: 0px;
 }

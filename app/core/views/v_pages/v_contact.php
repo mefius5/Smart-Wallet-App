@@ -1,5 +1,27 @@
 
-<?php include ("../../../init.php");?>
+<?php include ("../../../init.php");
+
+$user_id = $_SESSION['user_id'];
+
+if($stmt = $SW->Database->prepare("
+SELECT email
+FROM users
+WHERE user_id = ?")){
+    $stmt->bind_param('s', $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    while($row = $result->fetch_array(MYSQL_ASSOC)){
+        $email = $row['email'];
+        $_SESSION['email']=$email;
+    }
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,29 +101,36 @@
        <div class="row">
            <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
                <div class="contact-header">
-                   <h2>Contact me:</h2>
+                   <h2>Contact Me:</h2>
                </div>
                <div class="contact-content">
+                  
                    <form action="" method="post" id="contact-message">
                        <div class="form-group">
-                           <label for="message" class="message-label">Message:</label>
-                           <textarea class="form-control" name="message" id="message" cols="30" rows="10"></textarea>
+                           
+                           <textarea class="form-control" name="message" id="message" cols="30" value="" rows="10"></textarea>
                        </div>
                        
                        <div class="form-group"> 
-                            <button class="btn btn-primary btn-lg send-message-form " name="send-message" type="submit">Send Message</button>
+                            <button class="btn btn-primary btn-lg send-message-form " name="send-message" id="send-message" type="submit">Send Message</button>
                         </div>
                    </form>
+                   
                </div>
+               
+               <div id="contact-alert"></div>
                
                
            </div>
+           
+           
            
        </div>
         
 
 
-    </div> 
+    </div>
+<script src="../../../other/javascript/sendMessage.js"></script> 
     
 
 </body>

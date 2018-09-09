@@ -2,7 +2,7 @@
 
 include("init.php");
 
-if(isset($_POST['username'])){
+if(isset($_POST['submit'])){
     
     $SW->Template->setData('input_user', $_POST['username']);
     $SW->Template->setData('input_email', $_POST['email']);

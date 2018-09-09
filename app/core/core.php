@@ -29,9 +29,7 @@ class SW_Core {
     }
     
     function head(){
-//        if($this->Auth->checkLoginStatus()){
-//            include (APP_PATH . "core/templates/t_head.php");
-//        }
+
         if(isset($_GET['login'])){
             include (APP_PATH . "core/templates/t_login.php");
         }
@@ -72,8 +70,8 @@ class SW_Core {
          }
     
      function signup_link(){
-        
-            echo "<a href='?signup'>Signup <i class='fa fa-user-plus'></i></a>";
+         
+         echo "<a href='?signup'><button id='signup' class='btn btn-default btn-lg'><i class='fas fa-user-plus'></i> Get Started!</button></a>";
     }
     
      function addProfit_link(){
