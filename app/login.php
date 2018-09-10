@@ -20,12 +20,7 @@ if(isset($_POST['username'])){
     }else{ 
         $password = filter_var($SW->Template->getData('input_pass', FILTER_SANITIZE_STRING)); 
      }
-         
-         
-//    if (((($_POST['username'])!='')&&(($SW->Template->getData('input_pass'))!=''))&&($SW->Auth->validateLogin($SW->Template->getData('input_user'), $SW->Template->getData('input_pass')) == FALSE)){
-//        $errors .= '<p>Incorrect login or password</p>';    
-//    }
-    
+        
     if($errors!=''){
             $SW->Template->setAlert($errors, 'danger');
             $SW->Template->load('core/views/v_forms/v_login.php'); 
@@ -46,10 +41,8 @@ if(isset($_POST['username'])){
        $_SESSION['username'] = $SW->Auth->saveRow($username, $password, 'username');
        $_SESSION['user_id'] = $SW->Auth->saveRow($username, $password,  'user_id');
         
-        //$_SESSION['username'] = $SW->Template->getData('input_user');
         $_SESSION['loggedin'] = TRUE;
       
-//        echo'<script>$.colorbox.close();</script>';
         $SW->Template->load(APP_PATH . "core/views/v_forms/v_loggingin.php"); 
     }     
 }else{

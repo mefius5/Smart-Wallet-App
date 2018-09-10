@@ -2,7 +2,7 @@
 
 include("init.php");
 
-if(isset($_POST['submit'])){
+if(isset($_POST['username'])){
     
     $SW->Template->setData('input_user', $_POST['username']);
     $SW->Template->setData('input_email', $_POST['email']);
@@ -64,10 +64,6 @@ if(isset($_POST['submit'])){
         $warnings .= '<p>This eamil is already exist!</p>';
     }
     
-    
-    
-    
-    
     if(($errors!='') || ($warnings!='')){
         if($errors!=''){
             $SW->Template->setAlert($errors, 'danger');
@@ -88,71 +84,19 @@ if(isset($_POST['submit'])){
     $password = hash('sha256', $password);
     
     
-//    $Database = new mysqli($server, $user, $pass, $db_name); 
-    
-   
-    
-//    $sql = "INSERT INTO users (`username`, `email`, `password`) VALUES ('$username', '$email', '$password')";
-//    $result = mysqli_query($Database, $sql);
-//    
-//    if(!$result){
-//    echo '<div class="alert alert-danger">There was an error inserting the users details in the database!</div>'; 
-//    exit;
-//    }
-    
-    
-    if($SW->Auth->addUser($username, $email, $password)){
+    if($SW->Auth->addUser($username, $email, $password) == TRUE){
         
         $SW->Template->setAlert("Thank for your registring! Now you can log in", 'success');
         
-        $SW->Template->load('core/views/v_forms/v_signup.php'); 
-        echo'<script>$.colorbox.resize();</script>';
-        
-        
-    }
-    else{
-        $SW->Template->setAlert('Thank for your registering! Now you can log in', 'success');
-        
         $SW->Template->load('core/views/v_forms/v_login.php'); 
         echo'<script>$.colorbox.resize();</script>';
-        //echo'<script>$.colorbox.close();</script>';  
-        //$SW->Template->redirect('core/templates/t_signupsuccess.php'); 
+        
+    }else{
+        $SW->Template->setAlert('There was an issue adding new user into database', 'danger');
+        
+        $SW->Template->load('core/views/v_forms/v_signup.php'); 
+        echo'<script>$.colorbox.resize();</script>';
     }
-    
-//   $SW->Auth->addUser($username, $email, $password);
-//        $SW->Template->setAlert('There was an error inserting the user into database!' , 'danger');
-//        $SW->Template->load('core/views/v_signup.php'); 
-//        echo'<script>$.colorbox.resize();</script>';
-//        exit;
-//    }else{
-//        $SW->Template->setAlert("Thank for your registring! Now you can log in", 'success');
-//        $SW->Template->load('core/views/v_signup.php'); 
-//        echo'<script>$.colorbox.resize();</script>';
-//   }
-//    
-//    
-//    if($SW->Auth->addUser($username, $email, $password)){
-//       $SW->Template->setAlert("Thank for your registring! Now you can log in", 'success');
-//        $SW->Template->load('core/views/v_signup.php'); 
-//        echo'<script>$.colorbox.resize();</script>';
-//    }
-//    
-   
-    
-    
-   
-    
-    
-    
-    
-    
-    //echo'<script>$.colorbox.close();</script>';
-    
-    
-  
-    
-    
-    
     
 }else{
     $SW->Template->load('core/views/v_forms/v_signup.php');  

@@ -37,21 +37,25 @@ class Auth{
     function saveRow($username, $password, $column){
         
         global $SW; 
-        $sql = "
+        if($stmt = $SW->Database->prepare("
         SELECT * 
         FROM users 
-        WHERE username = '$username' 
-        AND password = '$password'";
-        $result = mysqli_query($SW->Database, $sql);
-        
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        
-        if(mysqli_num_rows($result) !== 1){
-            echo '<div class="alert alert-danger">Wrong username or Password</div>';
-                
-        }else{
-            return $row[$column]; 
-        } 
+        WHERE username = ? 
+        AND password = ?")){
+            $stmt->bind_param("ss", $username, $password);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            $row = $result->fetch_array(MYSQL_ASSOC);
+            
+            if($result->num_rows !==1){
+                echo '<div class="alert alert-danger">Wrong username or Password</div>';
+            }else{
+                return $row[$column];
+            }
+            
+            
+        }
     }
     
     
@@ -118,7 +122,15 @@ class Auth{
             $stmt->bind_param('sss', $username, $email, $password);
             $stmt->execute();
             $stmt->store_result();
-             $stmt->close();
+             if($stmt->num_rows > 0){
+                 $stmt->close();
+                 return FALSE;
+             }else{
+                 $stmt->close();
+                 return TRUE;
+             }
+         }else{
+             die();
          }
     }     
     

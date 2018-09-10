@@ -50,6 +50,7 @@
      
       <ul class="nav navbar-nav navbar-right">
         
+        <li><?php $SW->signup_link();?></li>
         <li><?php $SW->login_link();?></li>
        
       </ul>
@@ -62,10 +63,10 @@
           <div class="col-lg-12">
              <div id="content">
                   <h1>Smart Wallet</h1>
-                  <h3>Take Control Of Your Money</h3>
                   <hr>
+                  <h3>Take Control Of Your Money</h3>
                   
-                  <?php $SW->signup_link();?>
+                  
                   
              </div>
              

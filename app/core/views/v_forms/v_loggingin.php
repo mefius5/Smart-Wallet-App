@@ -10,7 +10,7 @@
 
 <div id="wrapper">
     
-    <p>Czekaj...</p>
+    <p>Wait...</p>
     
 </div>
 

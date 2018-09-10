@@ -3,6 +3,8 @@
 <script type = "text/javascript" src = "<?php echo APP_OTHER; ?>javascript/jquery.colorbox-min.js"></script>
 
 
+
+
 <script>
  
     $(document).ready(function(){

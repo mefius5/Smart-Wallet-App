@@ -8,11 +8,6 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo SITE_PATH; ?>/app/editProfit.php",
-//                data: dataString,
-//                cache: false,
-//                success: function(html){
-//                    $('#cboxLoadedContent').html(html);
-//                }
             });
         
         });

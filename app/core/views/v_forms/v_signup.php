@@ -1,20 +1,12 @@
+
 <script>
-    $(document).ready(function(){
+ $(document).ready(function(){
         
         $('#signup').submit(function(e){
             
             e.preventDefault();
             
-            
-//            var username = $('input#username').val();
-//            var email = $('input#email').val();
-//            var password = $('input#confirm_password').val();
-//            var confirm_password = $('input#password').val();
-//            
-//            var dataString = 'username=' + username + '&email=' + email + '&password=' + password + '&confirm_password=' + confirm_password;
-            
             var dataString = $(this).serializeArray();
-            console.log(dataString);
             
             $.ajax({
                 type: "POST",
@@ -38,9 +30,7 @@
             window.location = page;
         });
     });
-
 </script>
-
 
 
 
@@ -75,7 +65,7 @@
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="text" name="password" id="password" class="form-control" value="<?php echo $this->getData('input_pass');?>" placeholder="Password">
+                <input type="password" name="password" id="password" class="form-control" value="<?php echo $this->getData('input_pass');?>" placeholder="Password">
             </div>
             
             <div class="form-group">

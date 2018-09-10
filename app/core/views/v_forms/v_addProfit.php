@@ -6,7 +6,6 @@
             e.preventDefault();
             
             var dataString = $(this).serializeArray();
-            console.log(dataString);
             
             $.ajax({
                 type: "POST",

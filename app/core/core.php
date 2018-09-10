@@ -71,7 +71,7 @@ class SW_Core {
     
      function signup_link(){
          
-         echo "<a href='?signup'><button id='signup' class='btn btn-default btn-lg'><i class='fas fa-user-plus'></i> Get Started!</button></a>";
+         echo "<a href='?signup'>Signup <i class='fa fa-user-plus'></i></a>";
     }
     
      function addProfit_link(){

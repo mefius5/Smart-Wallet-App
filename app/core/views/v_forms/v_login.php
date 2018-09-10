@@ -5,14 +5,7 @@
             
             e.preventDefault();
             
-//            
-//            var username = $('input#username').val();
-//            var password = $('input#password').val();
-//            
-//            var dataString = 'username=' + username + '&password=' + password;
-            
             var dataString = $(this).serializeArray();
-            console.log(dataString);
             
             $.ajax({
                 type: "POST",
