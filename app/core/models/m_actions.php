@@ -18,46 +18,29 @@
               DESC LIMIT 10")){
                 $stmt->bind_param("i", $user_id);
                 $stmt->execute();
-                $stmt->store_result();
+                $result = $stmt->get_result();
                   
-                if($stmt->num_rows >0){
-                    $stmt->close();
-                    return TRUE;
+                if($result->num_rows >0){
+                    while($row = $result->fetch_array(MYSQL_ASSOC)){
+                        $record_id = $row['id'];
+                        $category = $row['category'];
+                        $amount = $row['amount'];
+                        $date = $row['date'];
+                        $profit_expense = $row['profit_expense'];
+
+                        echo "<div id='$record_id' class='record-header record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
+                                <div class='record record-content'>$category</div>
+                                <div class='record record-amount'>$amount</div>
+                                <div class='record record-date '>$date</div>
+                              </div>"; 
+                    }
+                    
                 }
                 else{
-                    $stmt->close();
-                    return FALSE;
+                    echo '<div class="alert alert-warning">You have not created any notes yet!</div>'; 
                 }
             }
          }
-        
-        function showRecords($user_id){
-            
-            global $SW;
-            
-            $sql="
-            SELECT * 
-            FROM operations 
-            WHERE user_id ='$user_id' 
-            ORDER BY id 
-            DESC LIMIT 10";
-            $result = $SW->Database->query($sql);
-                    
-            while($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
-                $record_id = $row['id'];
-                $category = $row['category'];
-                $amount = $row['amount'];
-                $date = $row['date'];
-                $profit_expense = $row['profit_expense'];
-                 
-                echo "<div id='$record_id' class='record-header record-$profit_expense' onclick='editRecord(this)' data-target='#deleteModal' data-toggle='modal'data-backdrop='static' data-keyboard='false'>
-                        <div class='record record-content'>$category</div>
-                        <div class='record record-amount'>$amount</div>
-                        <div class='record record-date '>$date</div>
-                      </div>"; 
-                
-            }
-        }
         
         function addRecord($user_id, $profit_expense, $category, $amount, $date){
             global $SW;
@@ -87,20 +70,18 @@
         
         function loadsum($user_id, $profit_expense){
              global $SW;
-            $sql="
+            if($stmt = $SW->Database->prepare("
             SELECT SUM(amount) 
             FROM operations 
-            WHERE user_id='$user_id' 
-            AND profit_expense='$profit_expense'";
-            
-            $result = $SW->Database->query($sql);
-            
-            while($row = mysqli_fetch_array($result, MYSQL_ASSOC)){
+            WHERE user_id = ? 
+            AND profit_expense = ?")){
+                $stmt->bind_param('is', $user_id, $profit_expense);
+                $stmt->execute();
+                $result=$stmt->get_result();
                 
+                while($row = $result->fetch_array(MYSQL_ASSOC)){
                     return $row['SUM(amount)'];
-                
-                
-                
+                }
             }
         }
         
@@ -116,7 +97,7 @@
             SELECT category, SUM(amount) AS amount 
             FROM operations 
             WHERE user_id = ? 
-            AND profit_expense =? 
+            AND profit_expense = ? 
             AND MONTH(date) = MONTH(CURRENT_DATE()) 
             AND YEAR(date) = YEAR(CURRENT_DATE()) 
             GROUP BY category
@@ -158,57 +139,48 @@
                 
                 while($row = $result->fetch_array(MYSQL_ASSOC)){
         
-                     $amount = $row['amount'];
+                    $amount = $row['amount'];
                     echo $amount; 
-               
                 }
             }
         }
         
-        
-        
-        
-        
 // My Profile PAGE
-        
         
         function updateUsername($username, $user_id){
             global $SW;
-           $sql = "
-           UPDATE users 
-           SET username='$username' 
-           WHERE user_id='$user_id'";
-            
-            $result = $SW->Database->query($sql);
-            
-            if(!$result){
-                echo '<div class="alert alert-danger">There was an error updating storing the new username in the database!</div>';
-}
+            if($stmt = $SW->Database->prepare("
+            UPDATE users
+            SET username = ?
+            WHERE user_id = ?")){
+                $stmt->bind_param('si', $$username, $user_id);
+                $stmt->execute();
+                $resut = $stmt->get_result();
+                
+                while($row = $result->fetch_array(MYSQL_ASSOC)){
+                    echo $row['username'];
+                }
             }
-        
-        
-        
-        
+        }     
                 
         function getAccountSettings($user_id){
             global $SW;
-                
-                $sql = "
-                SELECT * 
-                FROM users 
-                WHERE user_id='$user_id'";
-                $result = $SW->Database->query($sql);
-
-                $count = mysqli_num_rows($result);
-
-                if($count == 1){
-                    $row = mysqli_fetch_array($result, MYSQL_ASSOC); 
-                    return $row['username'];
-                    return $row['email']; 
-                 }else{
-                        echo "There was an error retrieving the username and email from the database";   
-                    }
             
+            if($stmt = $SW->Database->prepare("
+            SELECT *
+            FROM users
+            WHERE user_id = ?")){
+                $stmt->bind_param('i', $user_id);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                
+                if($result->num_rows==1){
+                    while($row = $result->fetch_array(MYSQL_ASSOC)){
+                        return $row['username'];
+                        return $row['email'];
+                    }
+                }
+            }
         }
         
         function updatePassword($password, $user_id){

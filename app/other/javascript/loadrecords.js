@@ -5,7 +5,6 @@ $(function(){
         data: {id: record_id}, 
         success: function (data){
             $('#balance-amount').html(data);
-            console.log(data);
         }
     }); 
     
@@ -19,7 +18,6 @@ $(function(){
     
     $('.delete').on('click', function(e){
         
-        console.log(record_id);
         var el = document.getElementById(record_id);
         
         
@@ -32,7 +30,6 @@ $(function(){
                         $('#alertContent').text("There was an issue delete the note from the database!");
                         $("#alert").fadeIn();
                     }else{
-                        //remove containing div
                         el.remove();
                         location.reload();
                         
