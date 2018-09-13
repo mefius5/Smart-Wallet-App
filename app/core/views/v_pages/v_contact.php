@@ -3,6 +3,8 @@
 
 $user_id = $_SESSION['user_id'];
 
+
+
 if($stmt = $SW->Database->prepare("
 SELECT email
 FROM users
@@ -14,7 +16,7 @@ WHERE user_id = ?")){
     while($row = $result->fetch_array(MYSQL_ASSOC)){
         $email = $row['email'];
         $_SESSION['email']=$email;
-    }
+    }  
 }
 
 

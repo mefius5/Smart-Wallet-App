@@ -1,5 +1,4 @@
 <?php
-include ("init.php");
 
 //$SW->Template->setData('user_id', $_SESSION['user_id']);
 
@@ -7,7 +6,7 @@ include ("init.php");
 $user_id = $_SESSION['user_id'];
 $username = '';
 $email ='';
-$SW->Actions->getAccountSettings($user_id)==TRUE;
+$SW->Actions->getAccountSettings($user_id);
 
-echo $username;
+var_dump($username) ;
 ?>

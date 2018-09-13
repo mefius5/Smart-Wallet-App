@@ -1,37 +1,29 @@
-<script>
-    var record_id;
-
-    function editRecord(e) {
-        record_id = e.id
-        console.log(record_id);
-    };
-
-    //    function deleteRecord() {
-    //        console.log(id);
-    //    }
-    //
-</script>
+<script src="../../../other/javascript/getRecordId.js"></script>
 
 
 <?php include ("../../../init.php");
 
-$user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user_id'];
+    //$username=' ';
+    //$email=' ';
 
-$sql = "SELECT * FROM users WHERE user_id='$user_id'";
-$result = $SW->Database->query($sql);
+    if($stmt = $SW->Database->prepare("
+    SELECT username, email
+    FROM users
+    WHERE user_id = ?")){
+        $stmt->bind_param('i', $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-$count = mysqli_num_rows($result);
-
-if($count == 1){
-    $row = mysqli_fetch_array($result, MYSQL_ASSOC); 
-    $username = $row['username'];
-    $email = $row['email']; 
-}else{
-    echo "There was an error retrieving the username and email from the database";   
-}
-            
-        
-
+        if($result->num_rows ==1){
+            while($row = $result->fetch_array(MYSQL_ASSOC)){
+                $username = $row['username'];
+                $email = $row['email'];
+            }
+        }else{
+            echo "There was an error retrieving the username and email from the database";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

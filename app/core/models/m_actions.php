@@ -176,8 +176,10 @@
                 
                 if($result->num_rows==1){
                     while($row = $result->fetch_array(MYSQL_ASSOC)){
-                        return $row['username'];
-                        return $row['email'];
+                        $username = $row['username'];
+                        $_SESSION['username']=$username;
+                        $email = $row['email'];
+                        $_SESSION['email']=$email;
                     }
                 }
             }
