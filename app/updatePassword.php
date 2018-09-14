@@ -1,9 +1,6 @@
 <?php
 
 include("init.php");
-
-//$SW->Template->setData('user_id', $_SESSION['user_id']);
-//$SW->Template->setData('username', $_SESSION['username']);
 $errors ='';
 
 if(empty($_POST["currentpassword"])){
@@ -16,17 +13,24 @@ if(empty($_POST["currentpassword"])){
     
     $user_id = $_SESSION["user_id"];
     
-    $sql = "SELECT password FROM users WHERE user_id='$user_id'";
-    $result = $SW->Database->query($sql);
-    $count = mysqli_num_rows($result);
-    if($count !== 1){
-        echo '<div class="alert alert-danger">There was a problem running the query</div>';
-    }else{
-        $row = mysqli_fetch_array($result, MYSQL_ASSOC);
-        if($currentPassword != $row['password']){
-            $errors .= '<p>The password entered is incorrect!</p>';
+    if($stmt = $SW->Database->prepare("
+    SELECT password
+    FROM users
+    WHERE user_id = ?")){
+        $stmt->bind_param('i', $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        if($result->num_rows !==1){
+            echo '<div class="alert alert-danger">There was a problem running the query</div>';
+        }else{
+            $row = $result->fetch_array(MYSQL_ASSOC);
+            if($currentPassword != $row['password']){
+                $errors .= '<p>The password entered is incorrect!</p>';
+            }
         }
-    }  
+        
+    }
 }
 
 

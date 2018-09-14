@@ -53,8 +53,6 @@ class Auth{
             }else{
                 return $row[$column];
             }
-            
-            
         }
     }
     

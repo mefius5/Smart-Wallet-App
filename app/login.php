@@ -40,6 +40,7 @@ if(isset($_POST['username'])){
     }else{
        $_SESSION['username'] = $SW->Auth->saveRow($username, $password, 'username');
        $_SESSION['user_id'] = $SW->Auth->saveRow($username, $password,  'user_id');
+        $_SESSION['email'] = $SW->Auth->saveRow($username, $password,  'email');
         
         $_SESSION['loggedin'] = TRUE;
       

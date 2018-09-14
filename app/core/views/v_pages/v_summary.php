@@ -3,33 +3,9 @@
 
 <?php include ("../../../init.php");
 
-$user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM users WHERE user_id='$user_id'";
-$result = $SW->Database->query($sql);
-
-$count = mysqli_num_rows($result);
-
-if($count == 1){
-    $row = mysqli_fetch_array($result, MYSQL_ASSOC); 
-    $username = $row['username'];
-    $email = $row['email']; 
-}else{
-    echo "There was an error retrieving the username and email from the database";  
-}
-$query = "
-SELECT profit_expense, SUM(amount) AS amount 
-FROM operations
-WHERE user_id= $user_id
-AND MONTH(date) = MONTH(CURRENT_DATE()) 
-AND YEAR(date) = YEAR(CURRENT_DATE()) 
-GROUP BY profit_expense";
-
-$result2 = $SW->Database->query($query);
-
-            
-        
-
+    include('../../../getChartResult.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,7 +38,7 @@ $result2 = $SW->Database->query($query);
           ['Profit/Expense', 'Amount'],
           
         <?php
-            while($row = $result2->fetch_array(MYSQL_ASSOC)){
+            while($row = $result->fetch_array(MYSQL_ASSOC)){
                 echo "['".$row['profit_expense']."' , ".$row['amount']."],";
             }
             ?>
@@ -85,13 +61,7 @@ $result2 = $SW->Database->query($query);
             
             pieSliceBorderColor: '#4d4949',
             pieSliceTextStyle: {color:'#ebf0ea' },
-            pieHole: 0.4,
-            
-            
-         
-            
-        
-           
+            pieHole: 0.4,  
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -110,10 +80,7 @@ $result2 = $SW->Database->query($query);
 
     <nav class="navbar navbar-inverse">
         <div class="container">
-            <!--             Brand and toggle get grouped for better mobile display -->
-
-
-            <!--             Brand and toggle get grouped for better mobile display -->
+           
             <div class="navbar-header">
 
                 <div class="navbar-header">

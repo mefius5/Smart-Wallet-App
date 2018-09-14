@@ -2,10 +2,6 @@
 
 include("init.php");
 
-//$SW->Template->setData('user_id', $_SESSION['user_id']);
-//$SW->Template->setData('username', $_SESSION['username']);
-
-
 $user_id = $_SESSION['user_id'];
 $newemail = $_POST['email'];
 
@@ -31,7 +27,6 @@ if($errors!=''){
     $resultMessage = "<div class='alert alert-danger'>$errors</div>";
     echo $resultMessage;   
 }else{
-    
     $newemail = $SW->Auth->prepareVariables($newemail);
     $SW->Actions->updateEmail($newemail, $user_id)==TRUE;
 }
