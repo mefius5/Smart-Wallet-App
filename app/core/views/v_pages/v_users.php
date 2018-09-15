@@ -60,7 +60,7 @@
                     <li><a href="v_summary.php"><i class="fas fa-chart-pie fa-lg"></i></a></li>
                     <li><a href="v_findRecord.php"><i class="fas fa-search fa-lg"></i></a></li>
                     <li><a href="v_myProfile.php"><i class="fas fa-cogs fa-lg"></i></a></li>
-                    <li><a href="v_contact.php"><i class="fas fa-question-circle fa-lg"></i></a></li>
+                    <li><a href="v_contact.php"><i class="fas fa-envelope fa-lg"></i></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>

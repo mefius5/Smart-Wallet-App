@@ -4,6 +4,7 @@
     text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
         0px 8px 13px rgba(0, 0, 0, 0.1),
         0px 18px 23px rgba(0, 0, 0, 0.1);
+    
 }
 
 
@@ -21,27 +22,28 @@ html{
     height: 100%;
 }
 
+h1, h2, h3{
+    color:#dff471;
+}
+
 h1 {
-    color: white;
+    
     letter-spacing: 2px;
     font-weight: 700;
     font-size: 54px;
 }
 
 h2{
-    color: white;
    text-align: center;
 }
 
 h3{
-    color: white;
     letter-spacing: 1px;
 }
 
-
-
 hr{
     max-width: 90%;
+    border-top: 2px solid #bde85e;
 }
 
 .well{
@@ -52,18 +54,12 @@ a {
     text-decoration: none;
 }
 
-/*ColorBox*/
-
 #sw_cancel {
 	float: right;
 	clear: both;
     color: black;
 }
 
-
-
-
-/*v_users.php*/
 
 .container-users, .container-statistics, .container-find{
     margin-top: 50px;
@@ -147,13 +143,10 @@ a {
     text-align: center;
 }
 
-/*myProfile.php*/
 
 .container-myprofile, .container-contact {
     margin-top: 100px;
 }
-
-
 
 .table-responsive {
     margin-top: 40px;
@@ -175,10 +168,6 @@ tr:hover{
 .col-title{
     text-align: center;
     color: white;
-}
-
-.col-summary{
-/*    border: 5px solid green;*/
 }
 
 .record-summary{
@@ -291,4 +280,20 @@ textarea#message{
 
 #contact-alert {
     margin-left: 0px;
+}
+
+.container-about{
+    
+    margin-top: 50px;;
+    color:#bde85e;
+    font-size: 24px;
+}
+
+.text-about{
+    text-indent: 10%;
+/*    background-color: rgba(28, 25, 25, 0.7);*/
+}
+
+@media (max-width: 720px) {
+    .text-about{font-size: 18px;}
 }

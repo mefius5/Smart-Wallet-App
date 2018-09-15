@@ -50,6 +50,7 @@
      
       <ul class="nav navbar-nav navbar-right">
         
+        <li><?php $SW->signup_link();?></li>
         <li><?php $SW->login_link();?></li>
        
       </ul>
@@ -57,10 +58,12 @@
   </div>
 </nav>
   
-  <div class="container">
+  <div class="container container-about">
       <div class="row">
           <div class="col-lg-offset-3 col-lg-6 col-md-offset-2 col-md-8">
              
+             <p class="text-about">My name is Maciek, I'm junior web developer, living in Kraków. I like learning new things. One year ago I started my adventure in programming and I find this to be my new passion. Everyday I try to improve my skills in technologies like HTML5, CSS, PHP, MYSQL. Now I'm deepening knowledge about responsive web design and PHP framework.</p><br>
+             <p class="text-about">If you are interesting in hiring me, cooperating with me or asking some questions about this app please signup and then go to contact page and send message via form. Enjoy!</p>
              
              
           </div>
